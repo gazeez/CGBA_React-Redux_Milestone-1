@@ -18,7 +18,9 @@ export interface Profiles {
 export const SELECT_CURRENT_USER = 'SELECT_CURRENT_USER';
 
 // Action requirements
-export interface SelectCurrentUser {
+interface SelectCurrentUser {
 	type: typeof SELECT_CURRENT_USER,
 	id: number		// This will match our user ID
 }
+
+export type ProfilesActionTypes = SelectCurrentUser;
