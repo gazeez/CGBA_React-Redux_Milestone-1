@@ -2,8 +2,8 @@ import * as React from 'react';
 import { Fragment } from 'react';
 import { connect } from 'react-redux'
 import { Grid } from 'semantic-ui-react';
-import {  ADD_TASK, REMOVE_TASK } from './actions/index'
-import { RootState } from './store';
+import {  ADD_MESSAGE } from 'src\store\ChatbotStore\ChatActions';
+import { RootState } from 'src\store\ChatStore';
 import './App.css';
 
 export interface IAppProps {
@@ -15,18 +15,13 @@ export class App extends React.Component<IAppProps> {
       <Fragment>
         <Grid centered>
           <Grid.Row>
-            <h2>Chatbot </h2
+            <h2>Chatbot </h2>
           </Grid.Row>
           <Grid.Row>
             <input  type="text"
-                    placeholder="Add task" />
+                    placeholder="Add Text" />
           </Grid.Row>
-          <Grid.Row>
-            <input  type="datetime-local"/>
-          </Grid.Row>
-          <Grid.Row><button>Add Message</button>
-          </Grid.Row>
-          <Grid.Row><button>Clear Message</button>
+          <Grid.Row><button>Send Message</button>
           </Grid.Row>
         </Grid>
         
@@ -37,11 +32,11 @@ export class App extends React.Component<IAppProps> {
 
 const mapStateToProps = (state: RootState) => {
   return {
-    text : state.text
+    steps : state.steps
   }
 } 
 
 export default connect (
   mapStateToProps,
-  {ADD_MESSAGE, REMOVE_MESSAGE}
+  { ADD_MESSAGE }
 )(App);

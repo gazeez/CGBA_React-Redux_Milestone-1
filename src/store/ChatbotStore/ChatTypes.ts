@@ -1,20 +1,23 @@
+// Create Types for the state related to Action
+export interface Step {
+    id: any,
+    message: string,
+    user: boolean
+}
 
 // Action Type Definitions
 export const ADD_MESSAGE_LIST = 'ADD_MESSAGE_LIST'
-export const REMOVE_MESSAGE_LIST = 'REMOVE_MESSAGE_LIST'
 
 // Model Type Definitions
-export interface ButtonState {
-    text : string,
+export interface ChatState {
+    steps : Step[],
         
 }
 // Action Definitions
 export interface ADD_MESSAGE {
     type: typeof ADD_MESSAGE_LIST
-    payload: string
+    payload: Step
 }
-export interface REMOVE_MESSAGE {
-    type: typeof REMOVE_MESSAGE_LIST
-    payload: string
-}
-export type ChatActionType = ADD_MESSAGE | REMOVE_MESSAGE 
+
+// Action passed to Reducer
+export type ChatActionType = ADD_MESSAGE 

@@ -1,23 +1,31 @@
-import { ButtonState, ADD_MESSAGE_LIST, REMOVE_MESSAGE_LIST, ChatActionType } from '../types';
+import { ADD_MESSAGE_LIST, ChatActionType, ChatState } from './ChatTypes';
 
-const initialState: ButtonState = {
-    text : 'Welcome to our social media',
+const initialState: ChatState = {
+
+    steps : [
+        {
+            id: '1',
+            message:'Welcome to TechCareer Social Media',
+            user: true
+        },
+        {
+            id: '2',
+            message:'What is your name?',
+            user: true
+        }
+        
+    ]
+
 }
-
-export function AddReducer (state = initialState, action: ChatActionType) : ButtonState {
+export function AddReducer (state = initialState, action: ChatActionType) {
 
     switch(action.type) {
     case ADD_MESSAGE_LIST:
         return {
                 ...state, 
-                text: action.payload
+                steps: [ ...state.steps, action.payload ]
                 } 
-    
-    case REMOVE_MESSAGE_LIST:
-        return {
-                ...state, 
-                text: action.payload
-                }   
+      
         default:
             return state;       
     }   
