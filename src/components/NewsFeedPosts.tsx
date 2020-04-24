@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import {Feed, Icon,} from 'semantic-ui-react';
 import {addPostToNewsFeed} from '../store/newsfeed/actions';
 import {Post, NewsFeedState} from '../store/newsfeed/types';
@@ -11,18 +11,7 @@ export interface INewsFeedProps {
 }
 
 export class NewsFeedPosts extends React.Component<INewsFeedProps> {
-    generateID=():number=>{
-
-    let randomNumber: number=Math.floor( Math.random()*1000);
-    randomNumber+=this.props.posts.length;
-    return randomNumber;
-    
-    
-    }
-    
-
-    
-
+   
     render () {
         return (
           
@@ -30,7 +19,7 @@ export class NewsFeedPosts extends React.Component<INewsFeedProps> {
             <Feed.Event>
               {this.props.posts.map(element=>(
                 <li>
-            <Feed.Label image='/images/kristy.png' />
+            <Feed.Label image source={require('../store/images/kristy.png')} />
             <Feed.Content>
               <Feed.Summary>
                 <a>{element.user}</a> posted on his page
@@ -47,7 +36,7 @@ export class NewsFeedPosts extends React.Component<INewsFeedProps> {
               </Feed.Meta>
             </Feed.Content> </li>))}
           </Feed.Event>
-      
+        
           
         )
     }
