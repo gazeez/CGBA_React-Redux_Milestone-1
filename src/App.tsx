@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid } from 'semantic-ui-react';
 import { Route, Switch } from "react-router-dom";
-import NavBar from './components/navbar/Navbar';
+import NavBar from './components/navbar/NavBar';
 import Home from './components/home/Home';
 import NewsFeed from './components/newsfeed/NewsFeed';
 import Profiles from './components/profiles/Profiles';
