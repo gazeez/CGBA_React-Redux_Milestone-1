@@ -5,7 +5,6 @@ import NewsFeedPosts  from './components/NewsFeedPosts';
 //import { Feed } from 'semantic-ui-react';
 
 
-
 function App() {
   return (
      <div className="App">

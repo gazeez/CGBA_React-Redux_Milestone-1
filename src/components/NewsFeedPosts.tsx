@@ -1,5 +1,5 @@
 import React from 'react';
-import {Feed, Icon} from 'semantic-ui-react';
+import {Feed, Icon,} from 'semantic-ui-react';
 import {addPostToNewsFeed} from '../store/newsfeed/actions';
 import {Post, NewsFeedState} from '../store/newsfeed/types';
 import {connect} from 'react-redux';
@@ -17,36 +17,42 @@ export class NewsFeedPosts extends React.Component<INewsFeedProps> {
     randomNumber+=this.props.posts.length;
     return randomNumber;
     
+    
     }
+    
+
+    
 
     render () {
         return (
+          
+          
             <Feed.Event>
-            <Feed.Label image='/images/avatar/small/joe.jpg' />
+              {this.props.posts.map(element=>(
+                <li>
+            <Feed.Label image='/images/kristy.png' />
             <Feed.Content>
               <Feed.Summary>
-                <a>Joe Henderson</a> posted on his page
+                <a>{element.user}</a> posted on his page
                 <Feed.Date>3 days ago</Feed.Date>
               </Feed.Summary>
+              <h3>{element.title}</h3>
               <Feed.Extra text>
-                Ours is a life of constant reruns. We're always circling back to where
-                we'd we started, then starting all over again. Even if we don't run
-                extra laps that day, we surely will come back for more of the same
-                another day soon.
+                {element.body}
               </Feed.Extra>
               <Feed.Meta>
                 <Feed.Like>
-                  <Icon name='like' />5 Likes
+                  <Icon name='like'/>5 Likes
                 </Feed.Like>
               </Feed.Meta>
-            </Feed.Content>
+            </Feed.Content> </li>))}
           </Feed.Event>
       
-
+          
         )
     }
 
-}
+  }
  const mapStateToProps = (state:NewsFeedState )=>{
      return {
          posts: state.posts
