@@ -1,5 +1,6 @@
 //Create types for the the state an action for the Redux store
 export interface Post {
+    image: string,
     id: number,
     user: string,
     title: string,

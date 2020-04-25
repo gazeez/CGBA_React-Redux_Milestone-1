@@ -1,8 +1,9 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import {Feed, Icon,} from 'semantic-ui-react';
 import {addPostToNewsFeed} from '../store/newsfeed/actions';
 import {Post, NewsFeedState} from '../store/newsfeed/types';
 import {connect} from 'react-redux';
+
 
 
 export interface INewsFeedProps {
@@ -15,11 +16,12 @@ export class NewsFeedPosts extends React.Component<INewsFeedProps> {
     render () {
         return (
           
-          
+            
             <Feed.Event>
               {this.props.posts.map(element=>(
                 <li>
-            <Feed.Label image source={require('../store/images/kristy.png')} />
+             <Feed.Label image src={element.image}/>
+              
             <Feed.Content>
               <Feed.Summary>
                 <a>{element.user}</a> posted on his page
@@ -34,9 +36,11 @@ export class NewsFeedPosts extends React.Component<INewsFeedProps> {
                   <Icon name='like'/>5 Likes
                 </Feed.Like>
               </Feed.Meta>
-            </Feed.Content> </li>))}
+            </Feed.Content>
+             </li>))}
           </Feed.Event>
         
+          
           
         )
     }
