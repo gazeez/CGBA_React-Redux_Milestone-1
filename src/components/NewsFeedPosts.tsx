@@ -15,13 +15,10 @@ export class NewsFeedPosts extends React.Component<INewsFeedProps> {
    
     render () {
         return (
-          
-            
             <Feed.Event>
               {this.props.posts.map(element=>(
                 <li>
-             <Feed.Label image src={element.image}/>
-              
+             <Feed.Label> <img src={element.image} alt=""/></Feed.Label>
             <Feed.Content>
               <Feed.Summary>
                 <a>{element.user}</a> posted on his page
