@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { Menu } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
@@ -6,9 +6,9 @@ export interface INavBarProps {
 }
 
 export default class NavBar extends React.Component<INavBarProps> {
-    render () {
+    public render () {
         return (
-            <Menu>
+            <Menu size={'large'}>
                 <Menu.Item
                     as={Link}
                     to={`/home`}

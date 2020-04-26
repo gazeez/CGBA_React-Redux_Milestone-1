@@ -1,6 +1,6 @@
 import { User, Profiles, SELECT_CURRENT_USER, ADD_NEW_USER, ProfilesActionTypes } from './types';
-import { Z_FULL_FLUSH } from 'zlib';
-import { kMaxLength } from 'buffer';
+// import { Z_FULL_FLUSH } from 'zlib';
+// import { kMaxLength } from 'buffer';
 
 // Set a default state
 const initialState: Profiles = {
@@ -8,6 +8,7 @@ const initialState: Profiles = {
 		{
 			"id": 1,
 			"name": "Leanne Graham",
+			"photo": "https://cdn.pixabay.com/photo/2014/04/03/10/32/user-310807__340.png",
 			"username": "Bret",
 			"password": "password1",
 			"email": "Sincere@april.biz",
@@ -35,6 +36,7 @@ const initialState: Profiles = {
 		{
 			"id": 2,
 			"name": "Ervin Howell",
+			"photo": "https://cdn.pixabay.com/photo/2014/04/03/10/32/businessman-310819__340.png",
 			"username": "Antonette",
 			"password": "password2",
 			"email": "Shanna@melissa.tv",
@@ -62,6 +64,7 @@ const initialState: Profiles = {
 		{
 			"id": 3,
 			"name": "Clementine Bauch",
+			"photo": "https://cdn.pixabay.com/photo/2014/03/24/17/19/teacher-295387__340.png",
 			"username": "Samantha",
 			"password": "password3",
 			"email": "Nathan@yesenia.net",
@@ -89,6 +92,7 @@ const initialState: Profiles = {
 		{
 			"id": 4,
 			"name": "Patricia Lebsack",
+			"photo": "https://cdn.pixabay.com/photo/2017/01/31/21/23/avatar-2027367__340.png",
 			"username": "Karianne",
 			"password": "password4",
 			"email": "Julianne.OConner@kory.org",
@@ -116,6 +120,7 @@ const initialState: Profiles = {
 		{
 			"id": 5,
 			"name": "Chelsey Dietrich",
+			"photo": "https://kripalu.org/sites/default/files/styles/headshot_large/public/KorusChelsey_0.jpg",
 			"username": "Kamren",
 			"password": "password5",
 			"email": "Lucio_Hettinger@annie.ca",
@@ -137,12 +142,13 @@ const initialState: Profiles = {
 				"bs": "revolutionize end-to-end systems"
 			},
 			"age": 36,
-			"gender": "male",
+			"gender": "female",
 			"interests": "cooking, eating"
 		},
 		{
 			"id": 6,
 			"name": "Mrs. Dennis Schulist",
+			"photo": "https://cdn.pixabay.com/photo/2018/04/28/13/18/man-3357275__340.png",
 			"username": "Leopoldo_Corkery",
 			"password": "password6",
 			"email": "Karley_Dach@jasper.info",
@@ -170,6 +176,7 @@ const initialState: Profiles = {
 		{
 			"id": 7,
 			"name": "Kurtis Weissnat",
+			"photo": "https://cdn.pixabay.com/photo/2018/05/19/22/03/man-3414477__340.png",
 			"username": "Elwyn.Skiles",
 			"password": "password7",
 			"email": "Telly.Hoeger@billy.biz",
@@ -197,6 +204,7 @@ const initialState: Profiles = {
 		{
 			"id": 8,
 			"name": "Nicholas Runolfsdottir V",
+			"photo": "https://cdn.pixabay.com/photo/2017/01/31/21/23/avatar-2027366__340.png",
 			"username": "Maxime_Nienow",
 			"password": "password8",
 			"email": "Sherwood@rosamond.me",
@@ -224,6 +232,7 @@ const initialState: Profiles = {
 		{
 			"id": 9,
 			"name": "Glenna Reichert",
+			"photo": "https://cdn.pixabay.com/photo/2015/10/18/20/15/woman-995164__340.png",
 			"username": "Delphine",
 			"password": "password9",
 			"email": "Chaim_McDermott@dana.io",
@@ -251,6 +260,7 @@ const initialState: Profiles = {
 		{
 			"id": 10,
 			"name": "Clementina DuBuque",
+			"photo": "https://cdn.pixabay.com/photo/2016/03/31/19/57/avatar-1295404__340.png",
 			"username": "Moriah.Stanton",
 			"password": "password10",
 			"email": "Rey.Padberg@karina.biz",
@@ -276,17 +286,18 @@ const initialState: Profiles = {
 			"interests": "sugar, coffee, alcohol, cocaine"
 		}
 	],
-	crtUserGenInfo: {		// Current user general info
+	crtUserGenInfo: {		// Current user's general info
 		id: 1,
 		name: "Leanne Graham",
+		photo: "https://cdn.pixabay.com/photo/2014/04/03/10/32/user-310807__340.png",
 		username: "Bret",
 		age: 31,
 		gender: "female"
 	},
-	crtUserInterests: {
+	crtUserInterests: {		// Current user's personal interests
 		interests: "reading, writing"
 	},
-	crtUserContactInfo: {	// Current users' contact info
+	crtUserContactInfo: {	// Current user's contact info
 		email: "Sincere@april.biz",
 		address: {
 			street: "Kulas Light",
@@ -312,21 +323,24 @@ const initialState: Profiles = {
 export function profilesReducer ( state = initialState, action: ProfilesActionTypes ) {
 	switch ( action.type ) {
 		case SELECT_CURRENT_USER:
-			const userx: User | undefined = state.users.find((elem)=>{elem.id==action.id})
-			if (userx !== undefined)
+			console.log ("Reducer running - Select Current user: " + action.id);
+			const userx: User | undefined = state.users.find( (elem) => {return elem.id===action.id;})
+			if (userx !== undefined) {
+				console.log("Found user with ID = " + userx.id);
 				return {
-					...state,
-					crtUserGenInfo: {		// Current user general info
+					users: state.users,
+					crtUserGenInfo: {		// Current user's general info
 						id: userx.id,
 						name: userx.name,
+						photo: userx.photo,
 						username: userx.username,
 						age: userx.age,
 						gender: userx.gender
 					},
-					crtUserInterests: {
+					crtUserInterests: {		// Current user's personal interests
 						interests: userx.interests
 					},
-					crtUserContactInfo: {	// Current users' contact info
+					crtUserContactInfo: {	// Current user's contact info
 						email: userx.email,
 						address: {
 							street: userx.address.street,
@@ -346,13 +360,14 @@ export function profilesReducer ( state = initialState, action: ProfilesActionTy
 							bs: userx.company.bs
 						}
 					}			
-				}
+				} }
 			else
 				return {
 					...state,
-					crtUserGenInfo: {		// Current user general info
+					crtUserGenInfo: {		// Current user's general info when user not found
 						id: action.id,
 						name: "USER NOT FOUND!",
+						photo: "",
 						username: "USER NOT FOUND!",
 						age: 0,
 						gender: "USER NOT FOUND!"

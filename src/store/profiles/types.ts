@@ -2,6 +2,7 @@
 export interface User {
 	id: number,
 	name: string,
+	photo: string,
 	username: string,
 	password: string,
 	email: string,
@@ -27,6 +28,7 @@ export interface User {
 export interface crtUserGenInfo {
 	id: number,
 	name: string,
+	photo: string,
 	username: string,
 	age: number,
 	gender: string
