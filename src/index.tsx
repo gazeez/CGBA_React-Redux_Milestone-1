@@ -7,8 +7,10 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Router } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
+import 'semantic-ui-css/semantic.min.css';
 
 export const history = createBrowserHistory();
+
 ReactDOM.render(
 	<Router history={history}>
 		<Provider store={store}>

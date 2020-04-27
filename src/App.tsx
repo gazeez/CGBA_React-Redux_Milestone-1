@@ -6,6 +6,9 @@ import HomePage from './components/TEST/HomePage';
 import NewsFeed from './components/TEST/NewsFeed';
 import Profiles from './components/profiles/Profiles';
 import './App.css';
+import Login from './components/homepage/login';
+import Menu from './components/homepage/menu';
+import Signup from './components/homepage/signup';
 
 export interface IAppProps {
 }
