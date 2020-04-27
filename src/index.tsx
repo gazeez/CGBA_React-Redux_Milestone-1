@@ -1,22 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import 'semantic-ui-css/semantic.min.css';
+import { Provider } from 'react-redux'
+import store from './store/index';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { Provider } from "react-redux";
-import {createBrowserHistory} from 'history';
-import {Router} from 'react-router-dom';
-//import store from './store';
+import { Router } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
+import 'semantic-ui-css/semantic.min.css';
 
-export const history = createBrowserHistory ();
-
+export const history = createBrowserHistory();
 
 ReactDOM.render(
-  <Router history={history}>
-    <App />
-    </Router>,
-  document.getElementById('root')
+	<Router history={history}>
+		<Provider store={store}>
+		<App />
+		</Provider>
+	</Router>,
+	document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change
