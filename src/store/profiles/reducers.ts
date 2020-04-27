@@ -323,12 +323,13 @@ const initialState: Profiles = {
 export function profilesReducer ( state = initialState, action: ProfilesActionTypes ) {
 	switch ( action.type ) {
 		case SELECT_CURRENT_USER:
-			console.log ("Reducer running - Select Current user: " + action.id);
-			const userx: User | undefined = state.users.find( (elem) => {return elem.id===action.id;})
+			console.log ("========== Reducer running - Select Current user: " + action.id);
+			// const userx: User | undefined = Object.assign( {}, state.users.find( (elem) => {return elem.id===action.id;}) )
+			const userx: User | undefined = state.users.find( (elem) => {return elem.id===action.id;});
 			if (userx !== undefined) {
-				console.log("Found user with ID = " + userx.id);
+				console.log("========== Found user ", userx, " with ID = ", userx.id);
 				return {
-					users: state.users,
+					...state,
 					crtUserGenInfo: {		// Current user's general info
 						id: userx.id,
 						name: userx.name,
