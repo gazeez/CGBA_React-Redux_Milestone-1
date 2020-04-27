@@ -4,13 +4,18 @@ import 'semantic-ui-css/semantic.min.css';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { Provider } from "react-redux";
+import {createBrowserHistory} from 'history';
+import {Router} from 'react-router-dom';
+//import store from './store';
 
+export const history = createBrowserHistory ();
 
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Router history={history}>
     <App />
-  </React.StrictMode>,
+    </Router>,
   document.getElementById('root')
 );
 

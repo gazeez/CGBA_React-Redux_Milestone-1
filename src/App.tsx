@@ -1,30 +1,51 @@
-import React, {Fragment} from 'react';
+import React, {Component, Fragment} from 'react';
 import { Container, Grid, Button, Header } from 'semantic-ui-react';
 import ReactDOM from 'react-dom' //GA
 import {BrowserRouter, Switch, Route } from 'react-router-dom' //added GA
 import logo from './logo.svg';
 import './App.css';
 import Login from './components/homepage/login';
-import Menu from './components/homepage/Menu';
-//import SignUp from './components/homepage/signup'
-import { Component } from 'react';
-import signin from './components/homepage/login';
-//import {Grid} from 'semantic-ui-react';
+import Menu from './components/homepage/menu';
+import Signup from './components/homepage/signup';
+
+//import {Component} from 'react';
+
+export interface IAppProps {
+
+}
+
+export default class App extends React.Component<IAppProps>  {
+  public render (){
+    return (
+      <Fragment>
+        <switch> 
+          <Route path='/login' component={Login}/>
+          <Route path='/signup' component={Signup}/>
+          </switch>
+
+      <Menu />
+      <Container>
+        <Login/>
+      </Container>
+    </Fragment>
+    )
+  }
+}
 
 
-const App = () => (
-  <Fragment>
-    <Menu />
-    <Container>
-      <Login/>
-    </Container>
-  </Fragment>
-);
+// const App = () => (
+//   <Fragment>
+//     <Menu />
+//     <Container>
+//       <Login/>
+//     </Container>
+//   </Fragment>
+// );
 
 
 
 
-// function App() {
+// function () {
 //   return (
 //     <BrowserRouter> 
 //     <div className="App">
@@ -50,4 +71,4 @@ const App = () => (
 //   );
 // }
 
-export default App;
+// export default App;

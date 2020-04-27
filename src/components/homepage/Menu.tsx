@@ -1,12 +1,13 @@
 import React from 'react';
 import { Container, Image, Menu } from 'semantic-ui-react';
+
 export default () => (
   <Menu>
     <Container>
       <Menu.Item as="a" header>
         <Image
           size="small"
-          src="/img/page/logo.svg"
+          src=""
         />
       </Menu.Item>
       <Menu.Menu position="right">
