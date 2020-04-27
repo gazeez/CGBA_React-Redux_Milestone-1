@@ -240,7 +240,7 @@ export class UserProfiles extends React.Component<IUserProfilesProps, IUserProfi
 															// I hereby just proved connect() is a piece of crap !!!
 		this.showGenInfo1();								// That's why here we will use showGenInfo1() instead of showGenInfo() !!!
 	}														// Compare the two on lines 90 and 112 above, for educational purposes !!!
-	// ########### SO IF YOU WANT TO SEE REDUX CONNECT() DUMBNESS, REPLACE showGenInfo1 showInterests1 showContact1 on lines 234, 255, 256
+	// ########### SO IF YOU WANT TO SEE REDUX CONNECT() DUMBNESS, REPLACE showGenInfo1 showInterests1 showContact1 on lines 255, 256, 257
 	// ########### WITH showGenInfo showInterests showContact and also replace showGenInfo1 with showGenInfo on line 241 above.
 	// ########### Then try to search an user ID of 1...10 and watch the browser console. Then tell me where is my mistake !!!
 	render () {
