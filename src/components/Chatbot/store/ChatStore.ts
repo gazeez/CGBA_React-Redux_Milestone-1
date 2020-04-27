@@ -1,4 +1,4 @@
-import { AddReducer } from "./ChatbotStore/ChatReducers";
+import { AddReducer } from "../ChatRedux/ChatReducers";
 import { combineReducers, createStore, applyMiddleware  } from "redux";
 import { composeWithDevTools } from 'redux-devtools-extension';
 

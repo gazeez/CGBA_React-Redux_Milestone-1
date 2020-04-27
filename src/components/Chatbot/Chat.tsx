@@ -1,16 +1,16 @@
 import * as React from 'react';
 import { Fragment } from 'react';
+import './App.css';
 import { connect } from 'react-redux'
 import { Grid } from 'semantic-ui-react';
-import {  ADD_MESSAGE } from 'src\store\ChatbotStore\ChatActions';
-import { RootState } from 'src\store\ChatStore';
-import './App.css';
+import { ADD_MESSAGE_LIST } from './ChatRedux/ChatTypes';
 
 export interface IAppProps {
 }
 
 export class App extends React.Component<IAppProps> {
   public render() {
+    const {feed, ADD_MESSAGE} = this.props;
     return (
       <Fragment>
         <Grid centered>
@@ -19,10 +19,9 @@ export class App extends React.Component<IAppProps> {
           </Grid.Row>
           <Grid.Row>
             <input  type="text"
-                    placeholder="Add Text" />
+                    placeholder="Add Text" onKeyDown={ (e) => e.keyCode === 13 ? ADD_MESSAGE(e.target.value): null} />
           </Grid.Row>
-          <Grid.Row><button>Send Message</button>
-          </Grid.Row>
+          
         </Grid>
         
       </Fragment>
@@ -30,13 +29,12 @@ export class App extends React.Component<IAppProps> {
   }
 }
 
-const mapStateToProps = (state: RootState) => {
-  return {
-    steps : state.steps
-  }
-} 
+const mapStateToProps = (state: any) => ({
+    feed : state,
+  });
+
 
 export default connect (
   mapStateToProps,
-  { ADD_MESSAGE }
+  { ADD_MESSAGE_LIST }
 )(App);
