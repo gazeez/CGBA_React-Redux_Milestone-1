@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 
-import NewsFeedPosts  from './components/NewsFeedPosts';
+import NewsFeedPosts  from './components/newsfeed/NewsFeedPosts';
 //import { Feed } from 'semantic-ui-react';
 
 

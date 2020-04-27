@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, Icon, Feed, Button} from 'semantic-ui-react';
-import {addPostToNewsFeed} from '../store/newsfeed/actions';
-import {Post, NewsFeedState} from '../store/newsfeed/types';
+import {addPostToNewsFeed} from '../../store/newsfeed/actions';
+import {Post, NewsFeedState} from '../../store/newsfeed/types';
 import {connect} from 'react-redux';
 
 
@@ -17,7 +17,7 @@ export class NewsFeedPosts extends React.Component<INewsFeedProps> {
    state={
      count:0
    }
-   incrementMe = ()=>{
+   incrementLikes = ()=>{
      let newCount = this.state.count +1
      this.setState({
        count: newCount
@@ -40,7 +40,7 @@ export class NewsFeedPosts extends React.Component<INewsFeedProps> {
            <Grid.Column width={12} >
           <h4> {element.title}</h4>
             {element.body}
-            <Button onClick={this.incrementMe}>👍 {this.state.count}</Button>
+            <Button onClick={this.incrementLikes}>👍 {this.state.count}</Button>
             
            </Grid.Column>
          </Grid.Row>
