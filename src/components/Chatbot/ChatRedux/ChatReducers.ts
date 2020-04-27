@@ -4,10 +4,10 @@ export function AddReducer (state = [], action: ChatActionType) {
 
     switch(action.type) {
     case ADD_MESSAGE_LIST:
-        return [
+        return {
                 ...state, 
-                action.payload 
-                ] 
+                action: action.payload 
+            } 
       
         default:
             return state;       

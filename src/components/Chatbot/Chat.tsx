@@ -4,11 +4,18 @@ import './App.css';
 import { connect } from 'react-redux'
 import { Grid } from 'semantic-ui-react';
 import { ADD_MESSAGE_LIST } from './ChatRedux/ChatTypes';
+import { ADD_MESSAGE } from './ChatRedux/ChatActions'
 
 export interface IAppProps {
 }
 
 export class App extends React.Component<IAppProps> {
+
+  addChat (e: any)
+  {
+    return e.keyCode === 13 ? ADD_MESSAGE(e.value): null; 
+  }
+
   public render() {
       return (
       <Fragment>
@@ -18,7 +25,9 @@ export class App extends React.Component<IAppProps> {
           </Grid.Row>
           <Grid.Row>
             <input  type="text"
-                    placeholder="Add Text" onKeyDown={ (e) => e.keyCode === 13 ? ADD_MESSAGE(e.target.value): null} />
+                    placeholder="Add Text" onKeyDown={ 
+                      this.addChat
+                      }/>
           </Grid.Row>
           
         </Grid>
