@@ -25,10 +25,9 @@ class Login extends Component {
     }
 
     render() { 
-        return (Login)
-    
+        //return (Login)
 
-        export default () => (
+            return (
 
             //  using Grid for grouping of content into rows and column
 

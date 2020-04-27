@@ -26,6 +26,7 @@ export default class App extends React.Component<IAppProps>  {
       <Menu />
       <Container>
         <Login/>
+        <Signup/>
       </Container>
     </Fragment>
     )

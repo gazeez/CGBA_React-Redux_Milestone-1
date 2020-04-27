@@ -7,7 +7,7 @@ const options = [
   { key: 'o', text: 'Other', value: 'other' },
 ]
 
-class FormExampleSubcomponentControl extends Component {
+class Signup extends Component {
     state = {
         email: '',
         password:'',
@@ -41,18 +41,46 @@ class FormExampleSubcomponentControl extends Component {
           />
         </Form.Group>
         <Form.Group inline>
-          <label>Size</label>
           <p>Enter your age:</p>
           <input type='text'name='age' onChange={this.handleChange}
       />
 
         </Form.Group>
-        <Form.TextArea label='About' placeholder='Tell us more about you...' />
+        <Form.TextArea label='Interests' placeholder='Tell us your interests...' />
         <Form.Checkbox label='I agree to the Terms and Conditions' />
-        <Form.Button>Submit</Form.Button>
+        <Form.Button>Sign Up</Form.Button>
       </Form>
     )
   }
 }
 
-export default FormExampleSubcomponentControl
+export default Signup
+
+
+
+//export interface User {
+    
+    // id: number,
+	// name: string,
+	// photo: string,
+	// username: string,
+	// password: string,
+	// email: string,
+	// address: {
+	// 	street: string,
+	// 	suite: string,
+	// 	city: string,
+	// 	zipcode: string,
+	// 	geo: {lat: number, lng: number}
+	// },
+	// phone: string,
+	// website: string,
+	// company: {
+	// 	name: string,
+	// 	catchPhrase: string,
+	// 	bs: string
+	// },
+	// age: number,
+	// gender: string,
+	// interests: string
+//}
