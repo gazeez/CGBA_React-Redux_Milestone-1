@@ -31,7 +31,7 @@ class Login extends Component {
 
             //  using Grid for grouping of content into rows and column
 
-            <Grid centered columns={2}>
+            <Grid centered>
                 <Grid.Column>
                     <Header as="h2" textAlign="center">
                         Login
@@ -60,7 +60,7 @@ class Login extends Component {
                     </Form>
                     </Segment>
                     <Message>
-                        Not registered yet? <a href="#">Sign Up</a>
+                        Not registered yet? <a href="/signup">Sign Up</a>
                     </Message>
                 </Grid.Column>
             </Grid>

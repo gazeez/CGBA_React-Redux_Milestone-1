@@ -14,7 +14,15 @@ export default class NavBar extends React.Component<INavBarProps> {
                     to={`/home`}
                     name='home'
                 >
-                    Log In /Sign Up
+                    Log In
+                </Menu.Item>
+
+                <Menu.Item
+                    as={Link}
+                    to={`/signup`}
+                    name='signup'
+                >
+                    Sign Up
                 </Menu.Item>
 
                 <Menu.Item
@@ -23,6 +31,14 @@ export default class NavBar extends React.Component<INavBarProps> {
                     name='newsfeed'
                 >
                     Newsfeed
+                </Menu.Item>
+
+                <Menu.Item
+                    as={Link}
+                    to={`/chat`}
+                    name='chat'
+                >
+                    Chat
                 </Menu.Item>
 
                 <Menu.Item
