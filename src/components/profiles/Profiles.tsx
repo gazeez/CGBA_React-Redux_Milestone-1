@@ -1,11 +1,11 @@
-import React, { FormEvent } from 'react';
+import React from 'react'; // import { FormEvent } from 'react';
 // import ReactDOM from 'react-dom';
 import { withRouter } from 'react-router-dom'
 import { RootState } from '../../store';
 import { selectCurrentUser, addNewUser } from '../../store/profiles/actions';
 import { User, crtUserGenInfo, crtUserInterests, crtUserContactInfo } from '../../store/profiles/types';
 // import { Grid, Menu, Segment, Input, Button } from 'semantic-ui-react';
-import { connect, useStore } from 'react-redux';
+import { connect } from 'react-redux';
 // import { JSXElement } from '@babel/types';
 import './Profiles.css';
 import store from '../../store/index';
@@ -211,11 +211,11 @@ export class UserProfiles extends React.Component<IUserProfilesProps, IUserProfi
 	showContact = () => { this.setState ( { page: 'tab3', pageContent: this.contact() } ); }
 	showContact1 = () => { this.setState ( { page: 'tab3', pageContent: this.contact1() } ); }
 
-	lookupUser = ( event: any ) => {	// This is an onSubmit handler
+	lookupUser = ( event: any ) => {			// This is an onSubmit handler
 		event.preventDefault();
 
-		let formFieldValue: string = ''; let userid: number = -1;
-
+		// let formFieldValue: string = '';		// Uncomment this for the first 2 cases below
+		let userid: number = -1;
 		// ======== Next we can go either like this: (if using lookupUser(event:FormEvent) =========
 		// const formElement: HTMLFormElement = event.target as HTMLFormElement;
 		// const formField: HTMLInputElement = formElement.children[1] as HTMLInputElement;
@@ -233,15 +233,16 @@ export class UserProfiles extends React.Component<IUserProfilesProps, IUserProfi
 
 		this.props.selectCurrentUser ( userid );			// the test console.log in the reducer shows it works properly, user found.
 		console.log( "========== Current Redux state is:\n", store.getState() );	// just testing -> Redux state changed correctly.
-		console.log( "========== Component received ID = " +
-					 this.props.crtUserGenInfo.id );								// just testing -> Oops! Props not updated
+		console.log( "========== UserProfiles component props received ID = " +
+					 this.props.crtUserGenInfo.id );								// just testing -> Oops! PROPS NOT UPDATED !!!
 															// Bottom line: Redux is a bunch of code & time wasting bullshit !!!
 															// We'll just have to get the data directly from the Redux state !!!
 															// I hereby just proved connect() is a piece of crap !!!
 		this.showGenInfo1();								// That's why here we will use showGenInfo1() instead of showGenInfo() !!!
 	}														// Compare the two on lines 90 and 112 above, for educational purposes !!!
-	// ########### SO IF YOU WANT TO SEE REDUX CONNECT() DUMBNESS, REPLACE showGenInfo1 showInterests1 showContact1 BELOW
-	// ########### WITH showGenInfo showInterests showContact !!! Then try to search an user ID of 1...10 and watch the browser console.
+	// ########### SO IF YOU WANT TO SEE REDUX CONNECT() DUMBNESS, REPLACE showGenInfo1 showInterests1 showContact1 on lines 234, 255, 256
+	// ########### WITH showGenInfo showInterests showContact and also replace showGenInfo1 with showGenInfo on line 241 above.
+	// ########### Then try to search an user ID of 1...10 and watch the browser console. Then tell me where is my mistake !!!
 	render () {
 		let tab1style = {backgroundColor: (this.state.page==='tab1')?'lightblue':'white'}
 		let tab2style = {backgroundColor: (this.state.page==='tab2')?'lightblue':'white'}
