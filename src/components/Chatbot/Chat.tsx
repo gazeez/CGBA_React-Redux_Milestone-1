@@ -10,8 +10,7 @@ export interface IAppProps {
 
 export class App extends React.Component<IAppProps> {
   public render() {
-    const {feed, ADD_MESSAGE} = this.props;
-    return (
+      return (
       <Fragment>
         <Grid centered>
           <Grid.Row>
