@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Icon, Feed, Button} from 'semantic-ui-react';
+import { Grid, Button} from 'semantic-ui-react';
 import {addPostToNewsFeed} from '../../store/newsfeed/actions';
 import {Post, NewsFeedState} from '../../store/newsfeed/types';
 import {connect} from 'react-redux';
@@ -27,7 +27,7 @@ export class NewsFeedPosts extends React.Component<INewsFeedProps> {
     render () {
       
         return (
-          <Grid className="newsFeed">
+          <Grid className="newsFeed" stackable textAlign="center">
           {this.props.posts.map(element=>(
           
            
