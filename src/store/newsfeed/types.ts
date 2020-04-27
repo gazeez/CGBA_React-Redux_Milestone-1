@@ -4,7 +4,8 @@ export interface Post {
     id: number,
     user: string,
     title: string,
-    body: string
+    body: string,
+    
 }
 
 //state will contain an array of posts 

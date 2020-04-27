@@ -1,43 +1,52 @@
 import React from 'react';
-import {Feed, Icon,} from 'semantic-ui-react';
+import { Grid, Icon, Feed, Button} from 'semantic-ui-react';
 import {addPostToNewsFeed} from '../store/newsfeed/actions';
 import {Post, NewsFeedState} from '../store/newsfeed/types';
 import {connect} from 'react-redux';
 
 
 
+
 export interface INewsFeedProps {
     addPostToNewsFeed: typeof addPostToNewsFeed;
     posts: Post[]
+  
 }
 
 export class NewsFeedPosts extends React.Component<INewsFeedProps> {
+   state={
+     count:0
+   }
+   incrementMe = ()=>{
+     let newCount = this.state.count +1
+     this.setState({
+       count: newCount
+     })
+   }
    
     render () {
+      
         return (
-            <Feed.Event>
-              {this.props.posts.map(element=>(
-                <li>
-             <Feed.Label> <img src={element.image} alt=""/></Feed.Label>
-            <Feed.Content>
-              <Feed.Summary>
-                <a>{element.user}</a> posted on his page
-                <Feed.Date>3 days ago</Feed.Date>
-              </Feed.Summary>
-              <h3>{element.title}</h3>
-              <Feed.Extra text>
-                {element.body}
-              </Feed.Extra>
-              <Feed.Meta>
-                <Feed.Like>
-                  <Icon name='like'/>5 Likes
-                </Feed.Like>
-              </Feed.Meta>
-            </Feed.Content>
-             </li>))}
-          </Feed.Event>
-        
+          <Grid className="newsFeed">
+          {this.props.posts.map(element=>(
           
+           
+         <Grid.Row>
+           <Grid.Column width={4 } >
+             <img src={element.image} alt=""/>
+             {element.user}
+           </Grid.Column>
+
+           <Grid.Column width={12} >
+          <h4> {element.title}</h4>
+            {element.body}
+            <Button onClick={this.incrementMe}>👍 {this.state.count}</Button>
+            
+           </Grid.Column>
+         </Grid.Row>
+           
+          ))}
+          </Grid>
           
         )
     }
