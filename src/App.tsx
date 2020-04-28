@@ -5,6 +5,7 @@ import NavBar from './components/navbar/NavBar';
 // import HomePage from './components/TEST/HomePage';
 // import NewsFeed from './components/TEST/NewsFeed';
 import NewsFeedPosts  from './components/newsfeed/NewsFeedPosts';
+import ChatBox from './components/Chatbot/Chat';
 import Profiles from './components/profiles/Profiles';
 import './App.css';
 import Login from './components/homepage/login';
@@ -28,6 +29,7 @@ export default class App extends React.Component<IAppProps> {
 							<Route exact path='/home' component={Login} />
 							<Route exact path='/signup' component={Signup} />
 							<Route exact path='/newsfeed' component={NewsFeedPosts} />
+							<Route exact path='/chat' component={ChatBox} />
 							<Route exact path='/profiles' component={Profiles} />
 						</Switch>
 					</Grid.Row>

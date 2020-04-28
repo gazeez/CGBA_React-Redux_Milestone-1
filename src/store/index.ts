@@ -2,12 +2,12 @@ import { combineReducers, createStore } from 'redux';
 import { profilesReducer } from './profiles/reducers';
 // import { homePageReducer } from './homepage/reducers';
 // import { newsFeedReducer } from './newsfeed/reducers';
-import {newsFeedReducer} from './newsfeed/reducers';
+import { newsFeedReducer } from './newsfeed/reducers';
 
 // Combine all the reducers together for a global app.
 const rootReducer = combineReducers( {
 	// homepage: homePageReducer,
-	// newsfeed: newsFeedReducer,
+	newsfeed: newsFeedReducer,
 	profiles: profilesReducer
 } );
 

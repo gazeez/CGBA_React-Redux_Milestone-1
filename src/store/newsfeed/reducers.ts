@@ -1,7 +1,5 @@
 import {NewsFeedState, Add_Post_To_NewsFeed, NewsFeedActionTypes} from './types';
 
-
-
 const initialState: NewsFeedState = {
     posts: [
         {   image: 'https://react.semantic-ui.com/images/avatar/small/joe.jpg',
@@ -51,13 +49,11 @@ const initialState: NewsFeedState = {
 export function newsFeedReducer (state=initialState, action: NewsFeedActionTypes){
     switch (action.type) {
         case Add_Post_To_NewsFeed:
-          return{
-            ...state,
-            posts: [...state.posts, action.payload]
-    }
-    default: 
-         return state;
-    
-    
+          	return {
+				...state,
+				posts: [...state.posts, action.payload]
+   		 	}
+    	default: 
+        	return state;    
     }
 }

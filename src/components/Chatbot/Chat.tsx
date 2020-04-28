@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Fragment } from 'react';
-import './App.css';
+// import './App.css';
 import { connect } from 'react-redux'
 import { Grid } from 'semantic-ui-react';
 import { ADD_MESSAGE_LIST } from './ChatRedux/ChatTypes';
@@ -9,7 +9,7 @@ import { ADD_MESSAGE } from './ChatRedux/ChatActions'
 export interface IAppProps {
 }
 
-export class App extends React.Component<IAppProps> {
+export class ChatBox extends React.Component<IAppProps> {
 
   addChat (e: any)
   {
@@ -45,4 +45,4 @@ const mapStateToProps = (state: any) => ({
 export default connect (
   mapStateToProps,
   { ADD_MESSAGE_LIST }
-)(App);
+)(ChatBox);

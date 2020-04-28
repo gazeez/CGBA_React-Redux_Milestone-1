@@ -2,27 +2,31 @@ import React from 'react';
 import { Grid, Button} from 'semantic-ui-react';
 import {addPostToNewsFeed} from '../../store/newsfeed/actions';
 import {Post, NewsFeedState} from '../../store/newsfeed/types';
+import { RootState } from '../../store';
 import {connect} from 'react-redux';
-
-
-
 
 export interface INewsFeedProps {
     addPostToNewsFeed: typeof addPostToNewsFeed;
     posts: Post[]
-  
 }
 
-export class NewsFeedPosts extends React.Component<INewsFeedProps> {
-   state={
-     count:0
-   }
-   incrementLikes = ()=>{
-     let newCount = this.state.count +1
-     this.setState({
-       count: newCount
-     })
-   }
+export interface INewsFeedState {
+	count: number
+}
+
+export class NewsFeedPosts extends React.Component<INewsFeedProps, INewsFeedState> {
+	constructor(props: any) {
+		super(props);
+		this.state = {
+			count:0
+		}
+	}
+	incrementLikes = ()=>{
+		let newCount = this.state.count +1
+		this.setState({
+		count: newCount
+		})
+	}
    
     render () {
       
@@ -52,11 +56,12 @@ export class NewsFeedPosts extends React.Component<INewsFeedProps> {
     }
 
   }
- const mapStateToProps = (state:NewsFeedState )=>{
-     return {
+// const mapStateToProps = (state:NewsFeedState )=>{
+	const mapStateToProps = (state:RootState )=>{
+    return {
          posts: state.posts
-     }
- }
+    }
+}
 
  export default connect (
      mapStateToProps,
