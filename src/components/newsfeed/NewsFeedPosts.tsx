@@ -59,7 +59,7 @@ export class NewsFeedPosts extends React.Component<INewsFeedProps, INewsFeedStat
 // const mapStateToProps = (state:NewsFeedState )=>{
 	const mapStateToProps = (state:RootState )=>{
     return {
-         posts: state.posts
+         posts: state.newsfeed.posts
     }
 }
 
