@@ -4,6 +4,7 @@ import {addPostToNewsFeed} from '../../store/newsfeed/actions';
 import {Post, NewsFeedState} from '../../store/newsfeed/types';
 import { RootState } from '../../store';
 import {connect} from 'react-redux';
+import './NewsFeedPosts.css'
 
 export interface INewsFeedProps {
     addPostToNewsFeed: typeof addPostToNewsFeed;
