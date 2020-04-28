@@ -1,3 +1,12 @@
+## Project description
+
+This project is meant as a demo of a social media app consisting of three pages:
+- Page one is a home page with the role of a login page.
+- Page two is a signup page used for creating a new account. This page can be accessed either from the navigation menu at the top or by clicking the Sign Up link in the Login page.
+- Page three is a newsfeed page showing posts from users.
+- Page four is a chat page allowing live text chat between users.
+- Page five is a user profile search page where a user can be looked up by his ID number. The ID can be entered in the text input box and upon pressing Enter the user's information will be displayed, organized in three different tabs: General Information, Activities (Personal Interests) and Contact Information. Clicking a tab will display that specific information.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
