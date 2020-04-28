@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="https://github.com/Pherkad/CGBA_React-Redux_Milestone/blob/master/src/BAGC_Logo.svg">
+</div>
+
 ## Project description
 
 This project is meant as a demo of a social media app consisting of three pages:
